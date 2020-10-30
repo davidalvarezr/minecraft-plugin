@@ -3,9 +3,25 @@ package me.devdav.insultplayers;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class InsultPlayers extends JavaPlugin {
+import java.util.Random;
+
+public final class InsultPlayers extends JavaPlugin implements Listener {
+
+    String[] insults = new String[]{
+            "le FDP",
+            "l'enculé de sa mère",
+            "l'enculé de ses morts",
+            "le fils de pute",
+            "la petite pute",
+            "le bâtard",
+            "le fils de chien",
+            "le gros branleur"
+    };
 
     @Override
     public void onEnable() {
@@ -16,6 +32,13 @@ public final class InsultPlayers extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    @EventHandler
+    public void onPlayerConnect(PlayerJoinEvent e) {
+        String playerName = e.getPlayer().getName();
+        String insult = insults[new Random().nextInt(insults.length)];
+        e.setJoinMessage(playerName + " " + insult + " a rejoint le serveur");
     }
 
     @Override

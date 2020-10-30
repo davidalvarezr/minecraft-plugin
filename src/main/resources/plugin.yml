@@ -6,4 +6,3 @@ description: Insult players when they connect with random insults
 commands:
   fdp:
     description: "Écrit: \"Je suis un FDP\""
-    usage: /<command>
