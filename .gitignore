@@ -95,7 +95,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-target/
+#target/
+#!target/InsultPlayers-1.0-SNAPSHOT.jar
 
 pom.xml.tag
 pom.xml.releaseBackup
