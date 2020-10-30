@@ -1,0 +1,9 @@
+name: InsultPlayers
+version: ${project.version}
+main: me.devdav.insultplayers.InsultPlayers
+api-version: 1.16
+description: Insult players when they connect with random insults
+commands:
+  fdp:
+    description: "Écrit: \"Je suis un FDP\""
+    usage: /<command>
