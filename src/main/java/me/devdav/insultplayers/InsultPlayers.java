@@ -1,5 +1,6 @@
 package me.devdav.insultplayers;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -9,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.Random;
 
@@ -57,6 +59,7 @@ public final class InsultPlayers extends JavaPlugin implements Listener {
         // Command behaviour
         Player player = (Player) sender;
         player.sendMessage("Je suis un FDP");
+        Bukkit.broadcastMessage(player.getDisplayName() + " aimerait que vous sachiez que c'est un gros FDP");
 
         return false;
     }
