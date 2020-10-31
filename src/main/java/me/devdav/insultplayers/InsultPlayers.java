@@ -96,13 +96,11 @@ public final class InsultPlayers extends JavaPlugin implements Listener {
         Location to = e.getTo();
         Player player = e.getPlayer();
 
-        player.sendMessage(String.format("From: %s/%s/%s", from.getX(), from.getY(), from.getZ()));
-        if (to != null){
-            player.sendMessage(String.format("To: %s/%s/%s", to.getX(), to.getY(), to.getZ()));
-        }
+        if (to == null) return;
+        if (from.getBlockX() == to.getBlockX() && from.getBlockZ() == to.getBlockZ()) return;
 
-        if (to == null || (from.getBlockX() == to.getBlockX() && from.getBlockZ() == to.getBlockZ())) return;
-
+//        player.sendMessage(String.format("From: %s/%s/%s", from.getX(), from.getY(), from.getZ()));
+//        player.sendMessage(String.format("To: %s/%s/%s", to.getX(), to.getY(), to.getZ()));
 
         for (PinnedLocation pinnedLocation : pinnedLocations) {
             if (!pinnedLocation.hasInside(from) && pinnedLocation.hasInside(to)) {

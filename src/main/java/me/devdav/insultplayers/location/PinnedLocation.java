@@ -52,8 +52,8 @@ public class PinnedLocation {
                 && (x >= bottomLeft.x && x <= bottomRight.x);
 
         boolean isInVertically =
-                (z >= bottomLeft.z && z <= topLeft.z)
-                && (z >= bottomRight.z && z <= topRight.z);
+                (z <= bottomLeft.z && z >= topLeft.z)
+                && (z <= bottomRight.z && z >= topRight.z);
 
         return isInHorizontally && isInVertically;
     }
