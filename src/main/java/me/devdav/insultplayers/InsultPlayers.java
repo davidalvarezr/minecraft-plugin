@@ -46,10 +46,10 @@ public final class InsultPlayers extends JavaPlugin implements Listener {
             new PinnedLocation(
                     "Bienvenue dans la maison principale",
                     "On espère vous revoir bientôt dans la maison principale",
-                    new Corner(-386, -45),
-                    new Corner(-371, -45),
+                    new Corner(-386, -66),
                     new Corner(-371, -66),
-                    new Corner(-386, -66)
+                    new Corner(-371, -45),
+                    new Corner(-386, -45)
             )
     };
 
