@@ -72,9 +72,6 @@ public class PlaceTest {
         Assert.assertFalse(place.hasInside(from1));
         Assert.assertFalse(place.hasInside(from2));
         Assert.assertTrue(place.hasInside(to1));
-
-
-
     }
 
 
