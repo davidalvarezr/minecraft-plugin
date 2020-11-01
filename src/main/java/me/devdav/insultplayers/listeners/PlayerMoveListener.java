@@ -9,6 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
+import java.util.HashMap;
+
 public class PlayerMoveListener implements Listener {
 
     private final Place[] places = new Place[]{
@@ -31,11 +33,17 @@ public class PlayerMoveListener implements Listener {
             )
     };
 
+    private final HashMap<String, Long> lastPlayerMessages = new HashMap<String, Long>();
+
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
+        Player player = e.getPlayer();
+        String playerName = player.getName();
+
+        if (hadAMessageInXLastSeconds(playerName, 10)) return;
+
         Location from = e.getFrom();
         Location to = e.getTo();
-        Player player = e.getPlayer();
 
         if (to == null) return;
         if (from.getBlockX() == to.getBlockX() && from.getBlockZ() == to.getBlockZ()) return;
@@ -48,7 +56,16 @@ public class PlayerMoveListener implements Listener {
                 player.sendMessage(ChatColor.DARK_GREEN + place.messageEnter);
             } else if (place.hasInside(from) && !place.hasInside(to)) {
                 player.sendMessage(ChatColor.DARK_RED + place.messageLeave);
+            } else {
+                continue;
             }
+            lastPlayerMessages.put(playerName, System.currentTimeMillis());
         }
+    }
+
+    private boolean hadAMessageInXLastSeconds(String username, int seconds) {
+        long lastMessageToPlayerTimstamp = lastPlayerMessages.getOrDefault(username, -1L);
+        if (lastMessageToPlayerTimstamp == -1L) return false;
+        return System.currentTimeMillis() - lastMessageToPlayerTimstamp < seconds * 1000;
     }
 }
