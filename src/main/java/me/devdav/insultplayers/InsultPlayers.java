@@ -1,7 +1,7 @@
 package me.devdav.insultplayers;
 
 import me.devdav.insultplayers.location.Corner;
-import me.devdav.insultplayers.location.PinnedLocation;
+import me.devdav.insultplayers.location.Place;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -33,8 +33,8 @@ public final class InsultPlayers extends JavaPlugin implements Listener {
             "le SS",
     };
 
-    public static PinnedLocation[] pinnedLocations = new PinnedLocation[]{
-            new PinnedLocation(
+    public static Place[] places = new Place[]{
+            new Place(
                     "Bienvenue au Maroc",
                     "Allah veille sur vous",
                     new Corner(-227, -623),
@@ -43,7 +43,7 @@ public final class InsultPlayers extends JavaPlugin implements Listener {
                     new Corner(-227, -619)
 
             ),
-            new PinnedLocation(
+            new Place(
                     "Bienvenue dans la maison principale",
                     "On espère vous revoir bientôt dans la maison principale",
                     new Corner(-386, 45),
@@ -102,11 +102,11 @@ public final class InsultPlayers extends JavaPlugin implements Listener {
 //        player.sendMessage(String.format("From: %s/%s/%s", from.getX(), from.getY(), from.getZ()));
 //        player.sendMessage(String.format("To: %s/%s/%s", to.getX(), to.getY(), to.getZ()));
 
-        for (PinnedLocation pinnedLocation : pinnedLocations) {
-            if (!pinnedLocation.hasInside(from) && pinnedLocation.hasInside(to)) {
-                player.sendMessage(pinnedLocation.messageEnter);
-            } else if (pinnedLocation.hasInside(from) && !pinnedLocation.hasInside(to)) {
-                player.sendMessage(pinnedLocation.messageLeave);
+        for (Place place : places) {
+            if (!place.hasInside(from) && place.hasInside(to)) {
+                player.sendMessage(place.messageEnter);
+            } else if (place.hasInside(from) && !place.hasInside(to)) {
+                player.sendMessage(place.messageLeave);
             }
         }
     }

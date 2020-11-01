@@ -2,7 +2,7 @@ package me.devdav.insultplayers.location;
 
 import org.bukkit.Location;
 
-public class PinnedLocation {
+public class Place {
     public String messageEnter;
     public String messageLeave;
     public Corner topLeft;
@@ -11,12 +11,12 @@ public class PinnedLocation {
     public Corner bottomLeft;
     public Corner[] corners;
 
-    public PinnedLocation(String messageEnter,
-                          String messageLeave,
-                          Corner cTopLeft,
-                          Corner cTopRight,
-                          Corner cBottomRight,
-                          Corner cBottomLeft) {
+    public Place(String messageEnter,
+                 String messageLeave,
+                 Corner cTopLeft,
+                 Corner cTopRight,
+                 Corner cBottomRight,
+                 Corner cBottomLeft) {
         this.messageEnter = messageEnter;
         this.messageLeave = messageLeave;
         this.topLeft = cTopLeft;
@@ -31,9 +31,9 @@ public class PinnedLocation {
      * @param messageLeave
      * @param corners      must be given in this order top left, top right, bottom right, bottom left
      */
-    public PinnedLocation(String messageEnter,
-                          String messageLeave,
-                          Corner[] corners) {
+    public Place(String messageEnter,
+                 String messageLeave,
+                 Corner[] corners) {
         this.messageEnter = messageEnter;
         this.messageLeave = messageLeave;
         this.corners = corners;

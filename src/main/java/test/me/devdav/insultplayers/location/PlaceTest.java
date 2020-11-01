@@ -1,7 +1,7 @@
 package test.me.devdav.insultplayers.location;
 
 import me.devdav.insultplayers.location.Corner;
-import me.devdav.insultplayers.location.PinnedLocation;
+import me.devdav.insultplayers.location.Place;
 import org.bukkit.Location;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import org.junit.After;
  * @version 1.0
  * @since <pre>oct. 31, 2020</pre>
  */
-public class PinnedLocationTest {
+public class PlaceTest {
 
     @Before
     public void before() throws Exception {
@@ -31,7 +31,7 @@ public class PinnedLocationTest {
      */
     @Test
     public void testHasInside() throws Exception {
-        PinnedLocation pinnedLocation = new PinnedLocation(
+        Place place = new Place(
                 "Bienvenue dans la maison principale",
                 "On espère vous revoir bientôt dans la maison principale",
                 new Corner(-386, -66),
@@ -57,21 +57,21 @@ public class PinnedLocationTest {
         Location to1 = new Location(null, -386, 64, -45);
 
 
-        Assert.assertFalse(pinnedLocation.hasInside(from5));
-        Assert.assertFalse(pinnedLocation.hasInside(from6));
-        Assert.assertTrue(pinnedLocation.hasInside(to3));
+        Assert.assertFalse(place.hasInside(from5));
+        Assert.assertFalse(place.hasInside(from6));
+        Assert.assertTrue(place.hasInside(to3));
 
-        Assert.assertFalse(pinnedLocation.hasInside(from3));
-        Assert.assertFalse(pinnedLocation.hasInside(from4));
-        Assert.assertTrue(pinnedLocation.hasInside(to2));
+        Assert.assertFalse(place.hasInside(from3));
+        Assert.assertFalse(place.hasInside(from4));
+        Assert.assertTrue(place.hasInside(to2));
 
-        Assert.assertFalse(pinnedLocation.hasInside(from7));
-        Assert.assertFalse(pinnedLocation.hasInside(from8));
-        Assert.assertTrue(pinnedLocation.hasInside(to4));
+        Assert.assertFalse(place.hasInside(from7));
+        Assert.assertFalse(place.hasInside(from8));
+        Assert.assertTrue(place.hasInside(to4));
 
-        Assert.assertFalse(pinnedLocation.hasInside(from1));
-        Assert.assertFalse(pinnedLocation.hasInside(from2));
-        Assert.assertTrue(pinnedLocation.hasInside(to1));
+        Assert.assertFalse(place.hasInside(from1));
+        Assert.assertFalse(place.hasInside(from2));
+        Assert.assertTrue(place.hasInside(to1));
 
 
 
