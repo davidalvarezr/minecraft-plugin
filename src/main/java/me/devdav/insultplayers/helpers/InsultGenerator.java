@@ -19,6 +19,10 @@ public class InsultGenerator {
             "le disciple préféré d'Hitler",
             "le nazi",
             "le SS",
+            "le fils de bar à tainp",
+            "l'antisémite notoire",
+            "le magrehbin de ses morts",
+            "le mangeur de pierres"
     };
 
     // private ctor
